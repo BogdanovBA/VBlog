@@ -1,0 +1,15 @@
+{% extends 'InfoBlog/base.html' %}
+{% load static %}
+
+{% block title %}MAIN PAGE{% endblock %}
+
+{% block body %}
+    <main>
+        <hr>
+        <div class="main_content">
+            <h1>Simple blog <span class="triangle">Δ</span> </br> maden with <span>Django</span></h1>
+            <img src="{% static 'InfoBlog/images/pencils.jpg' %}" alt="pencils">
+        </div>
+        <hr>
+    </main>
+{% endblock %}

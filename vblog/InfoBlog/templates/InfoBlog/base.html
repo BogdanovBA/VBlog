@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'InfoBlog/css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="head">
+
+            <div class="logo">
+                <img src="{% static 'InfoBlog/images/logo.png' %}" alt="Logo">
+            </div>
+
+            <hr class="hr1">
+            <hr class="hr2">
+            <hr class="hr3">
+
+            <div class="nav">
+
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Posts</a></li>
+                    <li><a href="#">Sign In</a></li>
+                    <li><a href="#">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+        {% block body %}
+        {% endblock %}
+    <footer>
+        <div class="foot">
+            <ul>
+                <li><a href="#"><img src="{% static 'InfoBlog/images/email.png' %}" alt=""></a></li>
+                <li><a href="#"><img src="{% static 'InfoBlog/images/github.png' %}" alt=""></a></li>
+                <li><a href="#"><img src="{% static 'InfoBlog/images/instagram.png' %}" alt=""></a></li>
+                <li><a href="#"><img src="{% static 'InfoBlog/images/youtube.png' %}" alt=""></a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

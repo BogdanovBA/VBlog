@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseNotFound, HttpResponseNotAllow
 
 
 def index(request):
-    return HttpResponse('Main page')
+    return render(request, 'InfoBlog/index.html')
 
 
 def page_not_found(request, exception):
