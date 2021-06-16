@@ -1,15 +1,54 @@
-{% extends 'InfoBlog/base.html' %}
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home page</title>
+    <link type="text/css" href="{% static 'InfoBlog/css/style.css' %}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
 
-{% block title %}MAIN PAGE{% endblock %}
-
-{% block body %}
     <main>
-        <hr>
-        <div class="main_content">
-            <h1>Simple blog <span class="triangle">Δ</span> </br> maden with <span>Django</span></h1>
-            <img src="{% static 'InfoBlog/images/pencils.jpg' %}" alt="pencils">
+
+        <div class="green"></div>
+
+        <div class="red"></div>
+
+
+        <div class="menu">
+
+            <div class="logo">
+                <img src="{% static 'InfoBlog/images/Logo.png' %}" alt="Logo">
+            </div>
+
+
+            <div class="nav">
+                <ul>
+                    <li><a>Home</a></li>
+                    <li><a>Posts</a></li>
+                    <li><a>Sign in</a></li>
+                    <li><a>Sign out</a></li>
+                    <li><a>Register</a></li>
+                </ul>
+            </div>
+
+
+            <div class="social">
+                <ul>
+                    <li><a><img src="{% static 'InfoBlog/images/youtube.png' %}" alt="YouTube"></a></li>
+                    <li><a><img src="{% static 'InfoBlog/images/github.png' %}" alt="GitHub"></a></li>
+                    <li><a><img src="{% static 'InfoBlog/images/instagram.png' %}" alt="Instagram"></a></li>
+                    <li><a><img src="{% static 'InfoBlog/images/email.png' %}" alt="Mail"></a></li>
+                </ul>
+            </div>
+
+
         </div>
-        <hr>
+
     </main>
-{% endblock %}
+</body>
+</html>
