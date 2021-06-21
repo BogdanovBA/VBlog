@@ -15,7 +15,7 @@ def access_denied(request, exception):
 
 
 def all_posts(request):
-    return HttpResponse("<h1>All posts</h1>")
+    return HttpResponse(request, 'InfoBlog/base.html')
 
 
 def num_post(request, post):

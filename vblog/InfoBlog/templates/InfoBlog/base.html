@@ -1,1 +1,73 @@
 {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Document</title>
+    <link type="text/css" href="{% static 'InfoBlog/css/posts_page.css' %}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main>
+
+
+        <div class="menu">
+
+            <div class="logo">
+                <img src="{% static 'InfoBlog/images/Logo.png' %}" alt="Logo">
+            </div>
+
+
+            <div class="nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Posts</a></li>
+                    <li><a href="#">Sign in</a></li>
+                    <li><a href="#">Sign out</a></li>
+                    <li><a href="#">Register</a></li>
+                </ul>
+            </div>
+
+
+            <!-- <div class="social">
+                <ul>
+                    <li><a><img src="/img/youtube.png" alt="YouTube"></a></li>
+                    <li><a><img src="/img/github.png" alt="GitHub"></a></li>
+                    <li><a><img src="/img/instagram.png" alt="Instagram"></a></li>
+                    <li><a><img src="/img/email.png" alt="Mail"></a></li>
+                </ul>
+            </div> -->
+
+        </div>
+
+
+        <div class="main_content">
+
+            <div class="news_block">
+
+                <div class="quote">
+                    <p>Knowledge is Power</p>
+                </div>
+
+                <div class="news">
+                    <p>Some posts and news</p>
+                </div>
+
+            </div>
+
+
+            <div class="posts_block">
+                <div class="posts_list">
+                    <p>Some posts text</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</body>
+</html>
