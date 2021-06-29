@@ -50,25 +50,59 @@
             </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
             <div class="posts_block">
-
                 <div class="category">
-                    <ul>
-                        {% if category_selected == 0 %}
-                            <li>Все категории</li>
-                        {% else %}
-                            <li><a href="{% url 'posts' %}">Все категории</a></li>
-                        {% endif %}
 
-                        {% for c in categories %}
-                            {% if c.pk == category_selected %}
-                                <li>{{ c.category_name }}</li>
-                            {% else %}
-                                <li><a href="{{ c.get_absolute_url }}">{{ c.category_name }}</a></li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
+                    {% if category_selected == 0 %}
+		                <li class="selected">All categories</li>
+                    {% else %}
+                            <li><a href="{% url 'posts' %}">All categories</a></li>
+                    {% endif %}
+
+                    {% for c in categories %}
+                        {% if c.pk == category_selected %}
+                            <li class="selected">{{c.category_name}}</li>
+                        {% else %}
+                            <li><a href="{{ c.get_absolute_url }}">{{c.category_name}}</a></li>
+                        {% endif %}
+                    {% endfor %}
+
+
+
                 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                     {% for p in posts %}
@@ -79,6 +113,7 @@
                             <a href="{{ p.get_absolute_url }}">Читать далее ...</a>
                         </div>
                     {% endfor %}
+
                 </div>
         </div>
     </main>

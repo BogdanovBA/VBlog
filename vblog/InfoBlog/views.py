@@ -23,7 +23,15 @@ def post_num(request, post_id):
 
 
 def show_category(request, cat_id):
-    return HttpResponse(f"Отображение категории с id = {cat_id}")
+    posts = Posts.objects.filter(category_id=cat_id)
+    categories = Category.objects.all()
+
+    context = {
+        'posts': posts,
+        'categories': categories,
+        'category_selected': cat_id,
+    }
+    return render(request, 'InfoBlog/posts_page.html', context=context)
 
 
 def page_not_found(request, exception):

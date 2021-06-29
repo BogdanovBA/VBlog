@@ -100,8 +100,13 @@ main {
 .category li {
     display: inline-block;
     margin-right: 25px;
+    margin-bottom: 15px;
+    margin-left: 15px;
 }
 
+.selected {
+    border-bottom: 2px solid #AF0000;
+}
 
 
 /* @media screen and (max-width: 1400px) {
