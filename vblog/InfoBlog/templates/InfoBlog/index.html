@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Home page</title>
     <link type="text/css" href="{% static 'InfoBlog/css/home.css' %}" rel="stylesheet">
+    <link type="image/x-icon" href="{% static 'InfoBlog/images/Logo.ico' %}" rel="shortcut icon">
+    <link type="image/x-icon" href="{% static 'InfoBlog/images/Logo.ico' %}" rel="shortcut icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap" rel="stylesheet">
 </head>
@@ -28,8 +30,8 @@
 
             <div class="nav">
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Posts</a></li>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'posts' %}">Posts</a></li>
                     <li><a href="#">Sign in</a></li>
                     <li><a href="#">Sign out</a></li>
                     <li><a href="#">Register</a></li>

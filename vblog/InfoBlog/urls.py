@@ -4,6 +4,7 @@ from InfoBlog.views import *
 urlpatterns = [
     path('', index, name='home'),
     path('home/', index, name='home'),
-    path('posts/', all_posts),
-    path('posts/<slug:post>', num_post)
+    path('posts/', all_posts, name='posts'),
+    path('posts/<int:post_id>', post_num, name='post'),
+    path('category/<int:cat_id>', show_category, name='category'),
 ]

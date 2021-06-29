@@ -14,7 +14,7 @@ a, a:visited, a:active {
 }
 
 a:hover {
-    border-bottom: 2px solid rgb(49, 49, 49);
+    border-bottom: 2px solid #AF0000;
 }
 
 ul, li {
@@ -71,11 +71,6 @@ main {
 }
 
 
-.posts_list {
-    border: 1px solid black;
-}
-
-
 .main_content {
     display: flex;
     justify-content: space-around;
@@ -91,9 +86,21 @@ main {
     width: 70%;
 }
 
+.post_card {
+    border: 1px solid black;
+    padding: 15px;
+    margin-bottom: 30px;
+}
 
 
+.category {
+    font-weight: bold;
+}
 
+.category li {
+    display: inline-block;
+    margin-right: 25px;
+}
 
 
 
