@@ -20,7 +20,7 @@ class Posts(models.Model):
     class Meta:
         verbose_name = 'Посты'
         verbose_name_plural = 'Посты'
-        ordering = ['time_create', 'title']
+        ordering = ['-time_create', 'title']
 
 
 class Category(models.Model):

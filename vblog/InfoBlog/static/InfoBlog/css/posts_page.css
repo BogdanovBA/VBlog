@@ -36,7 +36,7 @@ main {
 
 .logo img {
     max-height: 120px;
-    /* border: 1px solid grey; */
+    margin-left: 30px;
 }
 
 .nav {
@@ -67,7 +67,7 @@ main {
 
 
 .news_block {
-    border: 1px solid black;
+    padding-top: 20px;
 }
 
 
@@ -78,8 +78,10 @@ main {
 }
 
 .news_block {
+    box-shadow: 0px 0px 3px black;
     margin-right: 20px;
-    width: 25%;
+    width: 20%;
+    height: 650px;
 }
 
 .posts_block {
@@ -87,9 +89,11 @@ main {
 }
 
 .post_card {
-    border: 1px solid black;
-    padding: 15px;
-    margin-bottom: 30px;
+    max-width: 90%;
+    box-shadow: 0px 0px 3px black;
+    padding: 10px 10px 20px 20px;
+    margin-bottom: 70px;
+    margin-top: 10px;
 }
 
 
@@ -109,7 +113,7 @@ main {
 }
 
 .post_image {
-    max-width: 99%;
+    max-width: 95%;
 }
 
 
