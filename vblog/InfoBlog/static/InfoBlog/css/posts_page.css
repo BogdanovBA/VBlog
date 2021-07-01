@@ -108,6 +108,10 @@ main {
     border-bottom: 2px solid #AF0000;
 }
 
+.post_image {
+    max-width: 99%;
+}
+
 
 /* @media screen and (max-width: 1400px) {
     .green, .red, .menu {

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, HttpResponseNotFound, HttpResponseNotAllowed
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseNotAllowed, Http404
 from InfoBlog.models import Posts, Category
 
 
@@ -25,6 +25,9 @@ def post_num(request, post_id):
 def show_category(request, cat_id):
     posts = Posts.objects.filter(category_id=cat_id)
     categories = Category.objects.all()
+
+    if len(posts) == 0:
+        raise Http404()
 
     context = {
         'posts': posts,

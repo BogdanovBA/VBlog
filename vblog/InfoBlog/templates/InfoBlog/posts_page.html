@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Document</title>
+    <title>VBlog</title>
     <link type="text/css" href="{% static 'InfoBlog/css/posts_page.css' %}" rel="stylesheet">
     <link type="image/x-icon" href="{% static 'InfoBlog/images/Logo.ico' %}" rel="shortcut icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -50,19 +50,6 @@
             </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
             <div class="posts_block">
                 <div class="category">
 
@@ -80,39 +67,19 @@
                         {% endif %}
                     {% endfor %}
 
-
-
                 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    {% for p in posts %}
-                        <div class="post_card">
-                            <h2>{{ p.title }}</h2>
-                            <p>{{ p.content }}</p>
-                            <p>{{ p.time_create }}</p>
-                            <a href="{{ p.get_absolute_url }}">Читать далее ...</a>
-                        </div>
-                    {% endfor %}
+                {% for p in posts %}
+                    <div class="post_card">
+                        <h2>{{ p.title }}</h2>
+                        {% if p.post_image %}
+                            <p><img class="post_image" src="{{ p.post_image.url }}" alt="Post photo"></p>
+                        {% endif %}
+                        <p>{{ p.content|linebreaks|truncatewords:50 }}</p>
+                        <p>{{ p.time_create|date:"d-m-Y H:i:s" }}</p>
+                        <a href="{{ p.get_absolute_url }}">Читать далее ...</a>
+                    </div>
+                {% endfor %}
 
                 </div>
         </div>
