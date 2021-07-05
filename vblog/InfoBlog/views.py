@@ -9,32 +9,27 @@ def index(request):
 
 def all_posts(request):
     posts = Posts.objects.all()
-    categories = Category.objects.all()
+
     context = {
         'posts': posts,
-        'categories': categories,
         'category_selected': 0,
     }
     return render(request, 'InfoBlog/posts_page.html', context=context)
 
 
-def post_num(request, post_id):
-    return HttpResponse(f"Оторбражение поста с id = {post_id}")
-
-
 def show_category(request, cat_id):
     posts = Posts.objects.filter(category_id=cat_id)
-    categories = Category.objects.all()
-
-    if len(posts) == 0:
-        raise Http404()
 
     context = {
         'posts': posts,
-        'categories': categories,
         'category_selected': cat_id,
     }
     return render(request, 'InfoBlog/posts_page.html', context=context)
+
+
+
+def post_num(request, post_id):
+    return HttpResponse(f"Оторбражение поста с id = {post_id}")
 
 
 def page_not_found(request, exception):
