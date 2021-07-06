@@ -1,0 +1,65 @@
+{% load static %}
+{% load InfoBlog_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>VBlog</title>
+    <link type="text/css" href="{% static 'InfoBlog/css/base.css' %}" rel="stylesheet">
+    <link type="image/x-icon" href="{% static 'InfoBlog/images/Logo.ico' %}" rel="shortcut icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main>
+
+
+        <div class="menu">
+            <div class="logo">
+                <img src="{% static 'InfoBlog/images/Logo.png' %}" alt="Logo">
+            </div>
+
+            <div class="nav">
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'posts' %}">Posts</a></li>
+                    <li><a href="#">Sign in</a></li>
+                    <li><a href="#">Sign out</a></li>
+                    <li><a href="#">Register</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="main_content">
+            <div class="news_block">
+                <img src="{% static 'InfoBlog/images/news(temp).PNG' %}" alt="">
+                <div class="quote">
+                </div>
+                <div class="news">
+                </div>
+            </div>
+
+
+            <div class="posts_block">
+
+                <div class="category">
+                    {% if category_selected == 0 %}
+		                <li class="selected">All categories</li>
+                    {% else %}
+                            <li><a href="{% url 'posts' %}">All categories</a></li>
+                    {% endif %}
+
+                    {% show_categories 'category_name' category_selected %}
+                </div>
+
+                {% block content %}{% endblock %}
+
+            </div>
+        </div>
+    </main>
+</body>
+</html>

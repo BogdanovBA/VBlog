@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseNotAllowed, Http404
 from InfoBlog.models import Posts, Category
 
@@ -28,8 +28,15 @@ def show_category(request, cat_id):
 
 
 
-def post_num(request, post_id):
-    return HttpResponse(f"Оторбражение поста с id = {post_id}")
+def show_post(request, post_id):
+    post = get_object_or_404(Posts, pk=post_id)
+
+    context = {
+        'post': post,
+        'category_selected': post.category_id,
+    }
+
+    return render(request, 'InfoBlog/post.html', context=context)
 
 
 def page_not_found(request, exception):
