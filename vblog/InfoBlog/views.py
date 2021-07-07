@@ -28,8 +28,8 @@ def show_category(request, cat_id):
 
 
 
-def show_post(request, post_id):
-    post = get_object_or_404(Posts, pk=post_id)
+def show_post(request, post_slug):
+    post = get_object_or_404(Posts, pk=post_slug)
 
     context = {
         'post': post,

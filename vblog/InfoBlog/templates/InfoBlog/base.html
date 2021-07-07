@@ -35,13 +35,8 @@
 
 
         <div class="main_content">
-            <div class="news_block">
-                <img src="{% static 'InfoBlog/images/news(temp).PNG' %}" alt="">
-                <div class="quote">
-                </div>
-                <div class="news">
-                </div>
-            </div>
+            {% block news %}
+            {% endblock %}
 
 
             <div class="posts_block">

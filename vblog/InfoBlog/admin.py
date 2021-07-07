@@ -8,12 +8,14 @@ class PostsAdmin(admin.ModelAdmin):
     search_fields = ('title', 'content')
     list_editable = ('is_published',)
     list_filter = ('is_published', 'time_create')
+    prepopulated_fields = {"slug": ("title",)}
 
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'category_name')
     list_display_links = ('id', 'category_name')
     search_fields = ('category_name',)
+    prepopulated_fields = {"slug": ("category_name",)}
 
 
 admin.site.register(Posts, PostsAdmin)

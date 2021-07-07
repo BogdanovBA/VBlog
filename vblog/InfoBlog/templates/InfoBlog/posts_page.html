@@ -1,4 +1,15 @@
 {% extends 'InfoBlog/base.html' %}
+{% load static %}
+
+{% block news %}
+    <div class="news_block">
+        <img src="{% static 'InfoBlog/images/news(temp).PNG' %}" alt="">
+        <div class="quote">
+        </div>
+        <div class="news">
+        </div>
+    </div>
+{% endblock %}
 
 {% block content %}
     {% for p in posts %}
