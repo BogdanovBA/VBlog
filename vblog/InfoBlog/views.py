@@ -17,19 +17,22 @@ def all_posts(request):
     return render(request, 'InfoBlog/posts_page.html', context=context)
 
 
-def show_category(request, cat_id):
-    posts = Posts.objects.filter(category_id=cat_id)
+def show_category(request, cat_slug):
+    categories = Category.objects.all()
+    cat = get_object_or_404(Category, slug = cat_slug)
+    posts = Posts.objects.filter(category_id=cat.id)
 
     context = {
         'posts': posts,
-        'category_selected': cat_id,
+        'categories': categories,
+        'category_selected': cat_slug,
     }
     return render(request, 'InfoBlog/posts_page.html', context=context)
 
 
 
 def show_post(request, post_slug):
-    post = get_object_or_404(Posts, pk=post_slug)
+    post = get_object_or_404(Posts, slug=post_slug)
 
     context = {
         'post': post,
