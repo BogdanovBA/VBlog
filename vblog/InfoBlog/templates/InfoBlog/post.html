@@ -1,12 +1,11 @@
 {% extends 'InfoBlog/base.html' %}
 {% load static %}
 
-{% block content %}
 
+{% block content %}
     {% if post.post_image %}
         <p><img src="{{ post.post_image.url }}" alt="Post image"></p>
     {% endif %}
 
     {{ post.content|linebreaks }}
-
 {% endblock %}

@@ -42,14 +42,24 @@
             <div class="posts_block">
 
                 <div class="category">
+                    <div>
                     {% if category_selected == 0 %}
-		                <li class="selected">All categories</li>
+                        <li class="selected">All categories</li>
                     {% else %}
                             <li><a href="{% url 'posts' %}">All categories</a></li>
                     {% endif %}
 
-                    {% show_categories 'category_name' category_selected %}
+                        {% show_categories 'category_name' category_selected %}
+                    </div>
+
+                    <div class="add_post">
+
+                        <a href="{% url 'add_post' %}"><button class="add_button">+ Add new post</button></a>
+
+                    </div>
+
                 </div>
+
 
                 {% block content %}{% endblock %}
 

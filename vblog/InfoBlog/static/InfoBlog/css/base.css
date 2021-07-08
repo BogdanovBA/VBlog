@@ -8,6 +8,15 @@ body {
     list-style-type: none;
 }
 
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 a, a:visited, a:active {
     text-decoration: none;
     color: #242424;
@@ -99,6 +108,9 @@ main {
 
 .category {
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    max-width: 90%;
 }
 
 .category li {
@@ -109,13 +121,29 @@ main {
 }
 
 .selected {
-    border-bottom: 2px solid #AF0000;
+    border-bottom: 2px solid #980000;
 }
 
 .post_image {
     max-width: 95%;
 }
 
+.add_post a{
+    color: white;
+}
+
+.add_button {
+    background-color: #004D36;
+    padding: 2px 15px;
+    border-radius: 5px;
+}
+
+.add {
+    color: white;
+    background-color: #004D36;
+    padding: 5px 12px;
+    border-radius: 5px;
+}
 
 /* @media screen and (max-width: 1400px) {
     .green, .red, .menu {

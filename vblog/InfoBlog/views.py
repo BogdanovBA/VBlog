@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseNotAllowed, Http404
+
+from InfoBlog.forms import *
 from InfoBlog.models import Posts, Category
 
 
@@ -40,6 +42,11 @@ def show_post(request, post_slug):
     }
 
     return render(request, 'InfoBlog/post.html', context=context)
+
+
+def add_post(request):
+    form = AddPostForm()
+    return render(request, 'InfoBlog/add_post.html', {'form': form})
 
 
 def page_not_found(request, exception):
