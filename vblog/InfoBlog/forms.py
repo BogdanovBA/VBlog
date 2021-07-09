@@ -1,9 +1,23 @@
 from django import forms
+from django.core.exceptions import ValidationError
+
 from .models import *
 
-class AddPostForm(forms.Form):
-    title = forms.CharField(max_length=255, label='Заголовок поста')
-    slug = forms.SlugField(max_length=255)
-    content = forms.CharField(widget=forms.Textarea(attrs={'cols':150, 'rows':20}))
-    is_published = forms.BooleanField(label='Публикация', required=False)
-    category = forms.ModelChoiceField(queryset=Category.objects.all(), empty_label='Категория не выбрана')
+class AddPostForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['category'].empty_label = "Категория не выбрана"
+
+    class Meta:
+        model = Posts
+        fields = ['title', 'slug', 'content', 'post_image', 'is_published', 'category']
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-input'}),
+            'content': forms.Textarea(attrs={'cols': 120, 'rows': 15}),
+        }
+
+    def clean_title(self):
+        title = self.cleaned_data['title']
+        if len(title) > 150:
+            raise ValidationError('Длина заголовка превышает 150 символов')
+        return title

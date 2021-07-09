@@ -145,6 +145,13 @@ main {
     border-radius: 5px;
 }
 
+.add_post_button {
+    padding: 5px 15px;
+    background-color: #004D36;
+    color: white;
+    border-radius: 5px;
+}
+
 /* @media screen and (max-width: 1400px) {
     .green, .red, .menu {
         height: 395px;

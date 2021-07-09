@@ -45,7 +45,13 @@ def show_post(request, post_slug):
 
 
 def add_post(request):
-    form = AddPostForm()
+    if request.method == 'POST':
+        form = AddPostForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('posts')
+    else:
+        form = AddPostForm()
     return render(request, 'InfoBlog/add_post.html', {'form': form})
 
 
