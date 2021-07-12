@@ -8,6 +8,10 @@ body {
     list-style-type: none;
 }
 
+img {
+    max-width: 1200px;
+}
+
 button {
   padding: 0;
   border: none;
@@ -33,7 +37,7 @@ ul, li {
 
 main {
     max-width: 90%;
-    margin: 30px auto;
+    margin: 10px auto;
 }
 
 .menu {
@@ -101,7 +105,7 @@ main {
     max-width: 90%;
     box-shadow: 0px 0px 3px black;
     padding: 10px 10px 20px 20px;
-    margin-bottom: 70px;
+    margin-bottom: 25px;
     margin-top: 10px;
 }
 
@@ -150,6 +154,33 @@ main {
     background-color: #004D36;
     color: white;
     border-radius: 5px;
+}
+
+.pages_list {
+    display: flex;
+}
+
+.page_num a{
+    color: white;
+}
+.page_num {
+    display: inline-block;
+    background-color: #004D36;
+    padding: 5px 15px;
+    margin-right: 5px;
+    border-radius: 20px;
+}
+
+.page_num_selected {
+    display: inline-block;
+    background-color: #AF0000;
+    padding: 5px 15px;
+    margin-right: 5px;
+    border-radius: 20px;
+}
+
+.page_num_selected a{
+    color: white;
 }
 
 /* @media screen and (max-width: 1400px) {

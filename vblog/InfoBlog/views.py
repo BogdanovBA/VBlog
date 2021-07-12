@@ -9,6 +9,7 @@ from InfoBlog.models import Posts, Category
 
 
 class InfoBlogPosts(ListView):
+    paginate_by = 3
     model = Posts
     template_name = 'InfoBlog/posts_page.html'
     context_object_name = 'posts'
@@ -37,6 +38,7 @@ def index(request):
 
 
 class PostsCategory(ListView):
+    paginate_by = 2
     model = Posts
     template_name = 'InfoBlog/posts_page.html'
     context_object_name = 'posts'
