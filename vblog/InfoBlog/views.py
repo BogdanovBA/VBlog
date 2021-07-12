@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseNotAllowed, Http404
+from django.urls import reverse_lazy
 from django.views.generic import ListView, DeleteView, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from InfoBlog.forms import *
 from InfoBlog.models import Posts, Category
@@ -78,9 +80,10 @@ class ShowPost(DeleteView):
 #     return render(request, 'InfoBlog/post.html', context=context)
 
 
-class AddPost(CreateView):
+class AddPost(LoginRequiredMixin, CreateView):
     form_class = AddPostForm
     template_name = 'InfoBlog/add_post.html'
+    login_url = reverse_lazy('home')
 
 
 # def add_post(request):
