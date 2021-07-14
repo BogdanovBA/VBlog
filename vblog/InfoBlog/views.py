@@ -8,6 +8,14 @@ from InfoBlog.forms import *
 from InfoBlog.models import Posts, Category
 
 
+def page_not_found(request, exception):
+    return HttpResponseNotFound('<h1>Страница не найдена</h1>')
+
+
+def access_denied(request, exception):
+    return HttpResponseNotAllowed('<h1>Доступ запрещен</h1>')
+
+
 class InfoBlogPosts(ListView):
     paginate_by = 3
     model = Posts
@@ -99,9 +107,16 @@ class AddPost(LoginRequiredMixin, CreateView):
 #     return render(request, 'InfoBlog/add_post.html', {'form': form})
 
 
-def page_not_found(request, exception):
-    return HttpResponseNotFound('<h1>Страница не найдена</h1>')
+def login(request):
+    pass
 
 
-def access_denied(request, exception):
-    return HttpResponseNotAllowed('<h1>Доступ запрещен</h1>')
+class RegisterUser(CreateView):
+    form_class = RegisterUserForm
+    template_name = 'InfoBlog/register.html'
+    success_url = reverse_lazy('login')
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return dict(list(context.items()))
+

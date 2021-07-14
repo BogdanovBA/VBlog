@@ -183,6 +183,10 @@ main {
     color: white;
 }
 
+.form-input {
+    display: block;
+}
+
 /* @media screen and (max-width: 1400px) {
     .green, .red, .menu {
         height: 395px;

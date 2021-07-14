@@ -1,0 +1,19 @@
+{% extends 'InfoBlog/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h2>Register</h2>
+
+<form action="post">
+    {% csrf_token %}
+
+    {% for f in form %}
+        <p>{{f.label}}:</br> {{ f }}</p>
+        <div>{{ f.errors }}</div>
+    {% endfor %}
+
+    <button class="add_post_button" type="submit">Register</button>
+</form>
+
+{% endblock %}
