@@ -1,3 +1,5 @@
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.views import LoginView
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseNotAllowed, Http404
 from django.urls import reverse_lazy
@@ -6,6 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from InfoBlog.forms import *
 from InfoBlog.models import Posts, Category
+from InfoBlog.utils import DataMixin
 
 
 def page_not_found(request, exception):
@@ -107,11 +110,7 @@ class AddPost(LoginRequiredMixin, CreateView):
 #     return render(request, 'InfoBlog/add_post.html', {'form': form})
 
 
-def login(request):
-    pass
-
-
-class RegisterUser(CreateView):
+class RegisterUser(DataMixin, CreateView):
     form_class = RegisterUserForm
     template_name = 'InfoBlog/register.html'
     success_url = reverse_lazy('login')
@@ -120,3 +119,11 @@ class RegisterUser(CreateView):
         context = super().get_context_data(**kwargs)
         return dict(list(context.items()))
 
+
+class LoginUser(DataMixin, LoginView):
+    form_class = AuthenticationForm
+    template_name = 'InfoBlog/login.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return dict(list(context.items()))

@@ -1,0 +1,14 @@
+{% extends 'InfoBlog/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h2>Login</h2>
+
+<form action="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="add_post_button" type="submit">Login</button>
+</form>
+
+{% endblock %}
