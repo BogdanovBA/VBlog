@@ -3,7 +3,7 @@ from django.contrib.auth.views import LoginView
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseNotAllowed, Http404
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DeleteView, CreateView
+from django.views.generic import ListView, DeleteView, CreateView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from InfoBlog.forms import *
@@ -76,7 +76,7 @@ class PostsCategory(ListView):
 #     return render(request, 'InfoBlog/posts_page.html', context=context)
 
 
-class ShowPost(DeleteView):
+class ShowPost(DetailView):
     model = Posts
     template_name = 'InfoBlog/post.html'
     slug_url_kwarg = 'post_slug'
@@ -93,10 +93,10 @@ class ShowPost(DeleteView):
 #     return render(request, 'InfoBlog/post.html', context=context)
 
 
-class AddPost(LoginRequiredMixin, CreateView):
+class AddPost(CreateView):
     form_class = AddPostForm
     template_name = 'InfoBlog/add_post.html'
-    login_url = reverse_lazy('home')
+    success_url = reverse_lazy('home')
 
 
 # def add_post(request):
@@ -110,20 +110,12 @@ class AddPost(LoginRequiredMixin, CreateView):
 #     return render(request, 'InfoBlog/add_post.html', {'form': form})
 
 
-class RegisterUser(DataMixin, CreateView):
+class RegisterUser(CreateView):
     form_class = RegisterUserForm
     template_name = 'InfoBlog/register.html'
     success_url = reverse_lazy('login')
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return dict(list(context.items()))
 
-
-class LoginUser(DataMixin, LoginView):
+class LoginUser(LoginView):
     form_class = AuthenticationForm
     template_name = 'InfoBlog/login.html'
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return dict(list(context.items()))
