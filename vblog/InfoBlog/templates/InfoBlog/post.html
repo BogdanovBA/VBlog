@@ -1,6 +1,7 @@
 {% extends 'InfoBlog/base.html' %}
 {% load static %}
 
+{% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
     {% if post.post_image %}

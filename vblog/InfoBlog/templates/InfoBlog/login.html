@@ -1,13 +1,22 @@
 {% extends 'InfoBlog/base.html' %}
 {% load static %}
 
+{% block title %}Login{% endblock %}
+
 {% block content %}
 
 <h2>Login</h2>
 
-<form action="{% url 'login' %}" method="post">
+<form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+
+<div class="form-error">{{ form.non_field_errors }}</div>
+
+    {% for f in form %}
+        <p>{{f.label}}:</br> {{ f }}</p>
+        <div>{{ f.errors }}</div>
+    {% endfor %}
+
     <button class="add_post_button" type="submit">Login</button>
 </form>
 

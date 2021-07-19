@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Home page</title>
+    <title>{% block title %}Home{% endblock %}</title>
     <link type="text/css" href="{% static 'InfoBlog/css/home.css' %}" rel="stylesheet">
     <link type="image/x-icon" href="{% static 'InfoBlog/images/Logo.ico' %}" rel="shortcut icon">
     <link type="image/x-icon" href="{% static 'InfoBlog/images/Logo.ico' %}" rel="shortcut icon">
@@ -32,9 +32,9 @@
                 <ul>
                     <li><a href="{% url 'home' %}">Home</a></li>
                     <li><a href="{% url 'posts' %}">Posts</a></li>
-                    <li><a href="#">Sign in</a></li>
+                    <li><a href="{% url 'login' %}">Sign in</a></li>
+                    <li><a href="{% url 'register' %}">Sign up</a></li>
                     <li><a href="#">Sign out</a></li>
-                    <li><a href="#">Register</a></li>
                 </ul>
             </div>
 
