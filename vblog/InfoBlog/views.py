@@ -32,7 +32,7 @@ class InfoBlogPosts(ListView):
         return context
 
     def get_queryset(self):
-        return Posts.objects.filter(is_published=True)
+        return Posts.objects.filter(is_published=True).select_related('category')
 
 
 def index(request):
@@ -57,7 +57,7 @@ class PostsCategory(ListView):
     allow_empty = False
 
     def get_queryset(self):
-        return Posts.objects.filter(category__slug=self.kwargs['cat_slug'], is_published=True)
+        return Posts.objects.filter(category__slug=self.kwargs['cat_slug'], is_published=True).select_related('category')
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
