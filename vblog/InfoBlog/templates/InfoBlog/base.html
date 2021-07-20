@@ -15,15 +15,16 @@
 <body>
 
     <main>
-
-
+        
         <div class="menu">
             <div class="logo">
                 <img src="{% static 'InfoBlog/images/Logo.png' %}" alt="Logo">
             </div>
 
+            {% load cache %}
             <div class="nav">
                 <ul>
+            {% cache 60 navigation %}
                     <li><a href="{% url 'home' %}">Home</a></li>
                     <li><a href="{% url 'posts' %}">Posts</a></li>
                     <li><a href="{% url 'login' %}">Sign in</a></li>
@@ -33,6 +34,7 @@
                         <li><a href="{% url 'register' %}">Sign up</a></li>
                 </ul>
             </div>
+            {% endcache %}
         </div>
 
 

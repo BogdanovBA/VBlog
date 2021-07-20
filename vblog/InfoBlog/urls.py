@@ -1,10 +1,11 @@
 from django.urls import path
 from InfoBlog.views import *
+from django.views.decorators.cache import cache_page
 
 urlpatterns = [
     path('', index, name='home'),
     path('home/', index, name='home'),
-    path('posts/', InfoBlogPosts.as_view(), name='posts'),
+    path('posts/', cache_page(60)(InfoBlogPosts.as_view()), name='posts'),
     path('post/<slug:post_slug>', ShowPost.as_view(), name='post'),
     path('add_post/', AddPost.as_view(), name='add_post'),
     path('login/', LoginUser.as_view(), name='login'),
