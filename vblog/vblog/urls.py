@@ -6,7 +6,8 @@ from vblog import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('InfoBlog.urls'))
+    path('captcha/', include('captcha.urls')),
+    path('', include('InfoBlog.urls')),
 ]
 
 if settings.DEBUG:
